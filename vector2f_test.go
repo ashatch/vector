@@ -41,6 +41,16 @@ func TestEquals(t *testing.T) {
 	assert.False(t, NewVector2f(0.1, 0.0).Equals(NewVector2f(0.0, 0.0)))
 }
 
+func TestEqualsTo(t *testing.T) {
+	assert.True(t, NewVector2f(0.0, 0.0).EqualTo(NewVector2f(0.0, 0.0), 0))
+	assert.True(t, NewVector2f(0.1, 0.1).EqualTo(NewVector2f(0.1, 0.1), 0))
+
+	assert.False(t, NewVector2f(0.001, 0.001).EqualTo(NewVector2f(0.002, 0.002), 0))
+	assert.True(t, NewVector2f(0.001, 0.001).EqualTo(NewVector2f(0.002, 0.002), 0.01))
+	assert.False(t, NewVector2f(-0.001, -0.001).EqualTo(NewVector2f(-0.002, -0.002), 0))
+	assert.True(t, NewVector2f(-0.001, -0.001).EqualTo(NewVector2f(-0.002, -0.002), 0.01))
+}
+
 func TestSet(t *testing.T) {
 	v := NewVector2f(10.0, 20.0)
 	v.Set(100.0, 200.0)

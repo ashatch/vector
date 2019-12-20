@@ -47,6 +47,11 @@ func (a *Vector2f) Equals(b *Vector2f) bool {
 	return a.X == b.X && a.Y == b.Y
 }
 
+// EqualTo compares two Vector2f within a tolerance (epsilon)
+func (a *Vector2f) EqualTo(b *Vector2f, epsilon float64) bool {
+	return (math.Abs(a.X-b.X) <= epsilon) && (math.Abs(a.Y-b.Y) <= epsilon)
+}
+
 // Set updates the values
 func (a *Vector2f) Set(x, y float64) {
 	a.X = x
