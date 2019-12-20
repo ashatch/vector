@@ -1,4 +1,4 @@
-# vector
+# vector [![Build Status](https://travis-ci.org/ashatch/vector.svg?branch=master)](https://travis-ci.org/ashatch/vector)
 
 A vector library for Go.
 
